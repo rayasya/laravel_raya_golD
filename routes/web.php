@@ -14,5 +14,5 @@ use App\Http\Controllers\DataController;
 |
 */
 
-Route::view('/', 'welcome');
+Route::view('/', 'index');
 Route::get('/{kata}', [DataController::class, 'index']);

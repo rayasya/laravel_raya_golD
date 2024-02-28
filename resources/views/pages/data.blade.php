@@ -18,9 +18,13 @@
 
 <body>
     <div>
-        <marquee>Hai Selamat Datang! :)</marquee>
-        <h1>Ini kata dari route : {{ $kata }}</h1>
-        <h1>{{ $kata2 }}</h1>
+
+        <marquee>
+            <h1>Hai Selamat Datang! :)</h1>
+        </marquee>
+        <h3>Ini kata dari route : {{ $kata }}</h3>
+        <h3>{{ $kata2 }}</h3>
+        <h3>Request URL : {{ $url }}</h3>
     </div>
 </body>
 

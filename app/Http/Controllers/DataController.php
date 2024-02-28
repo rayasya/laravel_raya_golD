@@ -8,7 +8,8 @@ class DataController extends Controller
 {
     public function index(Request $req, $kata)
     {
+        $url = $req->url();
         $kata2 = "Ini dari controller";
-        return view('data', ['kata' => $kata, 'kata2' => $kata2]);
+        return view('pages.data', ['kata' => $kata, 'kata2' => $kata2, 'url' => $url]);
     }
 }
