@@ -22,9 +22,8 @@
         <marquee>
             <h1>Hai Selamat Datang! :)</h1>
         </marquee>
-        <h3>Ini kata dari route : {{ $kata }}</h3>
-        <h3>{{ $kata2 }}</h3>
-        <h3>Request URL : {{ $url }}</h3>
+        <h3>Ini kata dari route : {{ $url }}</h3>
+        <h3>{{ $kata }}</h3>
     </div>
 </body>
 

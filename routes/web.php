@@ -15,4 +15,8 @@ use App\Http\Controllers\DataController;
 */
 
 Route::view('/', 'index');
-Route::get('/{kata}', [DataController::class, 'index']);
+Route::get('/data', [DataController::class, 'index']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

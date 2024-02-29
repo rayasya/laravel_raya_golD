@@ -13,7 +13,7 @@ return new class extends Migration {
         Schema::create('biodata', function (Blueprint $table) {
             $table->string('nim')->primary();
             $table->string('nama_mhs');
-            $table->string('prodi_mhs');
+            $table->enum('prodi_mhs', ['TIF', 'MIF', 'TKK'])->default('TIF');
             $table->text('alamat_mhs');
             $table->string('no_telp');
             $table->date('ttl');

@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 
 class DataController extends Controller
 {
-    public function index(Request $req, $kata)
+    public function index(Request $req)
     {
         $url = $req->url();
-        $kata2 = "Ini dari controller";
-        return view('pages.data', ['kata' => $kata, 'kata2' => $kata2, 'url' => $url]);
+        $kata = "Ini dari controller";
+        return view('pages.data', ['kata' => $kata, 'url' => $url]);
     }
 }
