@@ -35,5 +35,19 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+        $this->email = $this->findUsername();
+    }
+
+    public function findUsername()
+    {
+        $user = request()->input('user');
+        $fieldType = filter_var($user, FILTER_VALIDATE_EMAIL) ? 'email' : 'name';
+        request()->merge([$fieldType => $user]);
+        return $fieldType;
+    }
+
+    protected function authenticated(Request $request)
+    {
+        return redirect('/home');
     }
 }

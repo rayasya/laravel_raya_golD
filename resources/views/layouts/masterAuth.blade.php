@@ -24,18 +24,20 @@
                                     <h1>Selamat Datang</h1>
                                 </a>
                                 <p class="text-center">Silahkan Login terlebih dahulu</p>
-                                <form>
+                                <form action="{{ route('login') }}" method="POST">
+                                    @csrf
                                     <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Username</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp">
+                                        <label for="exampleInputEmail1" class="form-label">Email</label>
+                                        <input name="email" type="email" class="form-control"
+                                            id="exampleInputEmail1" aria-describedby="emailHelp">
                                     </div>
                                     <div class="mb-4">
                                         <label for="exampleInputPassword1" class="form-label">Password</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1">
+                                        <input name="password" type="password" class="form-control"
+                                            id="exampleInputPassword1">
                                     </div>
-                                    <a href="/" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Sign
-                                        In</a>
+                                    <button type="submit" name="submit"
+                                        class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Sign In</button>
                                 </form>
                             </div>
                         </div>
