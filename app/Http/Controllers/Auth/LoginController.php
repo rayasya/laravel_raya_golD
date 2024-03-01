@@ -46,7 +46,7 @@ class LoginController extends Controller
         return $fieldType;
     }
 
-    protected function authenticated(Request $request)
+    protected function authenticated()
     {
         return redirect('/home');
     }
