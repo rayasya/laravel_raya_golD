@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Validation\ValidationException;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -25,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/dashboard';
 
     /**
      * Create a new controller instance.
@@ -35,19 +37,24 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-        $this->email = $this->findUsername();
     }
 
-    public function findUsername()
+    public function email()
     {
-        $user = request()->input('user');
-        $fieldType = filter_var($user, FILTER_VALIDATE_EMAIL) ? 'email' : 'name';
-        request()->merge([$fieldType => $user]);
-        return $fieldType;
+        return 'email';
     }
 
-    protected function authenticated()
+    protected function validateLogin(Request $request)
     {
-        return redirect('/home');
+        $this->validate($request, [
+            $this->email() => 'required|string',
+            'password' => 'required|string',
+        ]);
+    }
+    protected function sendFailedLoginResponse(Request $request)
+    {
+        throw ValidationException::withMessages([
+            $this->email() => [trans('auth.failed')],
+        ]);
     }
 }
